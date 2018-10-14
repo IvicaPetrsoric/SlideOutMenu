@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeController: UITableViewController {
+class HomeController: UITableViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class HomeController: UITableViewController {
         
         setupNavigationItems()
         setupMenuController()
-        setupPanGesture()
+//        setupPanGesture()
         setupDarkCoverView()
     }
     
@@ -35,7 +35,16 @@ class HomeController: UITableViewController {
     
     fileprivate func setupPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+//        panGesture.delegate = self
         view.addGestureRecognizer(panGesture)
+    }
+    
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
