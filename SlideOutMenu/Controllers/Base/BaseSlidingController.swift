@@ -63,7 +63,6 @@ class BaseSlidingController: UIViewController {
         let translation = gesture.translation(in: view)
         let velocity = gesture.velocity(in: view)
         
-        // Cleaning up this section of code to solve for Lesson #10 Challenge of velocity and darkCoverView
         if isMenuOpened {
             if abs(velocity.x) > velocityThreshold {
                 closeMenu()
@@ -168,7 +167,5 @@ class BaseSlidingController: UIViewController {
         addChild(homeController)
         addChild(menuController)
     }
-    
-
 
 }
