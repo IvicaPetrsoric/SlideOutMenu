@@ -19,6 +19,7 @@
 		6B4F3BB92175362A0073C401 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F3BB82175362A0073C401 /* MenuItemCell.swift */; };
 		6B4F3BBB21753C6A0073C401 /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F3BBA21753C6A0073C401 /* SpacerView.swift */; };
 		6B4F3BD9217691850073C401 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F3BD8217691850073C401 /* ListController.swift */; };
+		6B4F3BDB2176939D0073C401 /* BookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F3BDA2176939D0073C401 /* BookmarksController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6B4F3BB82175362A0073C401 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
 		6B4F3BBA21753C6A0073C401 /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		6B4F3BD8217691850073C401 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		6B4F3BDA2176939D0073C401 /* BookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				6B4F3B912172A1620073C401 /* HomeController.swift */,
 				6B4F3BA22172A9830073C401 /* MenuController.swift */,
 				6B4F3BD8217691850073C401 /* ListController.swift */,
+				6B4F3BDA2176939D0073C401 /* BookmarksController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				6B4F3BA32172A9830073C401 /* MenuController.swift in Sources */,
 				6B4F3BB321751B000073C401 /* CustomMenuHeaderView.swift in Sources */,
 				6B4F3B902172A1620073C401 /* AppDelegate.swift in Sources */,
+				6B4F3BDB2176939D0073C401 /* BookmarksController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
