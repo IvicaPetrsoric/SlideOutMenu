@@ -46,7 +46,7 @@ class MenuItemCell: UITableViewCell {
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .init(top: 30, left: 12, bottom: 30, right: 12)
+        stackView.layoutMargins = .init(top: 8, left: 12, bottom: 8, right: 12)
     }
     
     required init?(coder aDecoder: NSCoder) {

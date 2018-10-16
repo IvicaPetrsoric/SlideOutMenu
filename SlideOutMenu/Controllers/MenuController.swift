@@ -13,10 +13,18 @@ struct MenuItem {
     let title: String
 }
 
+extension MenuController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let slidingController = UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingController
+        slidingController?.didSelectMenuItem(indexPath: indexPath)
+    }
+}
+
 class MenuController: UITableViewController {
     
     let menuItems = [
-        MenuItem(icon: #imageLiteral(resourceName: "profile"), title: "Profiles"),
+        MenuItem(icon: #imageLiteral(resourceName: "profile"), title: "Home"),
         MenuItem(icon: #imageLiteral(resourceName: "lists"), title: "Lists"),
         MenuItem(icon: #imageLiteral(resourceName: "bookmarks"), title: "Bookmarks"),
         MenuItem(icon: #imageLiteral(resourceName: "moments"), title: "Moments"),
