@@ -13,6 +13,9 @@ class ListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "Lists"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         view.backgroundColor = .white
         
         let label = UILabel()
