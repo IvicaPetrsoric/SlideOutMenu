@@ -15,6 +15,8 @@ class ChatroomMenuContainerController: UIViewController {
         let chatroomsView = chatroomsMenuController.view!
         view.addSubview(chatroomsView)
         
+        searchContainer.searchBar.delegate = chatroomsMenuController
+        
         view.addSubview(searchContainer)
         searchContainer.backgroundColor = #colorLiteral(red: 0.2549019608, green: 0.1843137255, blue: 0.2470588235, alpha: 1)
         
