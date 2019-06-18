@@ -11,7 +11,8 @@ import UIKit
 class BaseSlidingController: UIViewController {
     
     lazy var rightViewController: UIViewController = UINavigationController(rootViewController: HomeController())
-    private lazy var menuController = MenuController(delegate: self)
+//    private lazy var menuController = MenuController(delegate: self)
+    private lazy var menuController = ChatroomMenuContainerController()
     
     private let leftContainerView = UIView()
     private let rightContainerView = UIView()

@@ -198,8 +198,8 @@
 		6B4F3BA12172A9710073C401 /* Chatroom */ = {
 			isa = PBXGroup;
 			children = (
-				6B4F3C65217FB9D00073C401 /* ChatroomsMenuController.swift */,
 				6B4F3C6D2180FC6D0073C401 /* ChatroomMenuContainerController.swift */,
+				6B4F3C65217FB9D00073C401 /* ChatroomsMenuController.swift */,
 			);
 			path = Chatroom;
 			sourceTree = "<group>";
