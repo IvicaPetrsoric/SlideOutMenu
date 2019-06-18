@@ -8,29 +8,31 @@
 
 import UIKit
 
-struct MenuItem {
-    let icon: UIImage
-    let title: String
-}
-
-extension MenuController {
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let slidingController = UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingController
-        slidingController?.didSelectMenuItem(indexPath: indexPath)
-    }
+protocol MenuControllerDelegate: class {
+    func didSelectMenuItem(indexPath: IndexPath)
 }
 
 class MenuController: UITableViewController {
     
-    let menuItems = [
+    private weak var delegate: MenuControllerDelegate?
+    
+    private let menuItems = [
         MenuItem(icon: #imageLiteral(resourceName: "profile"), title: "Home"),
         MenuItem(icon: #imageLiteral(resourceName: "lists"), title: "Lists"),
         MenuItem(icon: #imageLiteral(resourceName: "bookmarks"), title: "Bookmarks"),
         MenuItem(icon: #imageLiteral(resourceName: "moments"), title: "Moments"),
         ]
     
-    fileprivate let cellID = "cellId"
+    private  let cellId = "cellId"
+    
+    init(delegate: MenuControllerDelegate) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,30 +41,23 @@ class MenuController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let customHeaderView = CustomMenuHeaderView()
+        let customHeaderView = MenuHeaderView()
         return customHeaderView
     }
-    
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 200
-//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MenuItemCell(style: .default, reuseIdentifier: cellID)
-        let menuItem = menuItems[indexPath.row]
-        cell.iconImageView.image = menuItem.icon
-        cell.titleLabel.text = menuItem.title
-//        cell.textLabel?.text = menuItem.title
-//        cell.imageView?.image = menuItem.icon
+        let cell = MenuItemCell(style: .default, reuseIdentifier: cellId)
+        cell.menuItem = menuItems[indexPath.row]
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let slidingController = UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingController
+        slidingController?.didSelectMenuItem(indexPath: indexPath)
     }
     
 }

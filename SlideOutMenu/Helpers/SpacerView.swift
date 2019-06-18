@@ -10,7 +10,7 @@ import UIKit
 
 class SpacerView: UIView {
     
-    let space: CGFloat
+    private let space: CGFloat
     
     override var intrinsicContentSize: CGSize {
         return .init(width: space, height: space)

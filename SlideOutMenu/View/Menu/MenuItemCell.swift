@@ -8,42 +8,42 @@
 
 import UIKit
 
-class IconImageView: UIImageView {
-    override var intrinsicContentSize: CGSize {
-        return .init(width: 44, height: 44)
-    }
-}
-
 class MenuItemCell: UITableViewCell {
+    
+    var menuItem: MenuItem? {
+        didSet {
+            guard let menuItem = menuItem else { return }
+            
+            iconImageView.image = menuItem.icon
+            titleLabel.text = menuItem.title
+        }
+    }
 
-    let iconImageView: IconImageView = {
-        let iv = IconImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.image = #imageLiteral(resourceName: "profile")
-        return iv
+    private let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = #imageLiteral(resourceName: "profile")
+        imageView.constrainWidth(constant: 44)
+        imageView.constrainHeight(constant: 44)
+        return imageView
     }()
 
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
+        label.text = "Profile"
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-//        backgroundColor = .orange
-        
+                
         let stackView = UIStackView(arrangedSubviews: [iconImageView, titleLabel, UIView()])
-        addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 12
-        titleLabel.text = "Profile"
+
+        addSubview(stackView)
         
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = .init(top: 8, left: 12, bottom: 8, right: 12)
